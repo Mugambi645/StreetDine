@@ -9,10 +9,8 @@ def bussiness_idea():
 
 @f.route('/contact', methods=['GET', 'POST'])
 def contact():
-  form = ContactForm()
-
-  if request.method == 'POST':
-    return 'Form posted.'
-
-  elif request.method == 'GET':
-    return render_template('faqs/contact.html', form=form)
+    form = ContactForm()
+    if request.method == 'POST':
+        return 'Form posted.'
+    elif request.method == 'GET':
+        return render_template('faqs/contact.html', form=form)
