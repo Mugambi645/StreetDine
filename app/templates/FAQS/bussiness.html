@@ -1,9 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@600&family=Kalam&display=swap" rel="stylesheet">
 <style>
     .image-class {
         
     }
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
 <div
   class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" 
@@ -18,5 +50,50 @@
   </div>
 </div>
 <!-- Jumbotron -->
+
+
+
+<!-- Jumbotron -->
+</a>
+<br><br><br><br>
+<h2 class="text-center" style="color: #0a9396; font-family: 'Gluten', cursive;">Testimonials from experienced chefs</h2><hr>
+<br><br>
+<div class="container" style="margin-top: 5rem;">
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+     
+        <div class="card">
+            <img src="https://media.istockphoto.com/photos/preparing-her-favourite-dish-picture-id892674198?b=1&k=20&m=892674198&s=170667a&w=0&h=gLsLMdnGSpAisnnARmwEHC_p_Wcbw0IjrIY5hFzaAzc=" alt="Denim Jeans" style="width:100%">
+            <h1>Tailored Jeans</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button>Add to Cart</button></p>
+          </div>
+   
+
+    </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0" >
+      <!-- Search form -->
+      <div class="text-center">
+        <div class="card">
+            <img src="https://media.istockphoto.com/photos/preparing-her-favourite-dish-picture-id892674198?b=1&k=20&m=892674198&s=170667a&w=0&h=gLsLMdnGSpAisnnARmwEHC_p_Wcbw0IjrIY5hFzaAzc=" alt="Denim Jeans" style="width:100%">
+            <h1>Elvis Muchai</h1>
+            <p class="price">Chef,Blogger</p>
+            <p>Get to connect with Elvis to bring an insight into the world of culinary</p>
+            
+          </div>
+   
+<!--social media-->
+<!-- Facebook -->
+<div class="text-center" style="margin: 3rem;">
+<a style="color: #3b5998; margin: 1rem;" href="#!" role="button"
+  ><i class="fab fa-facebook-f fa-lg"></i
+></a>
+
+<!-- Twitter -->
+
+  </div>
+  </div>
+  
 
 {% endblock %}
