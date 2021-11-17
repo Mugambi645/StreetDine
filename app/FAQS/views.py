@@ -13,4 +13,4 @@ def contact():
     if request.method == 'POST':
         return 'Form posted.'
     elif request.method == 'GET':
-        return render_template('faqs/contact.html', form=form)
+        return render_template('FAQS/contact.html', form=form)
