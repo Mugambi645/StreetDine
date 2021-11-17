@@ -7,11 +7,19 @@
     <div class="flash">{{ message }}</div>
   {% endfor %}
 
+  {% for message in form.email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  {% for message in form.subject.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
   {% for message in form.message.errors %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
   
-  <form action="{{ url_for('faqs.contact') }}" method=post>
+  <form action="{{ url_for('contact') }}" method=post>
     {{ form.hidden_tag() }}
 
     {{ form.name.label }}
