@@ -4,3 +4,14 @@ from flask import render_template,abort,redirect,url_for,request
 @f.route("/faqs")
 def bussiness_idea():
     return render_template("FAQS/bussiness.html")
+
+
+@f.route('/contact', methods=['GET', 'POST'])
+def contact():
+  form = ContactForm()
+
+  if request.method == 'POST':
+    return 'Form posted.'
+
+  elif request.method == 'GET':
+    return render_template('faqs/contact.html', form=form)
