@@ -7,27 +7,31 @@ from app.auth.models import Role,User
 from app.profile.forms import UpdateProfile
 from .. import db,photos
 from app.auth.models import User
-from .forms import SellForm
-from .models import Sell
+from .forms import ArticleForm
+from .models import Articles
 from app.profile.forms import UpdateProfile
-
-@c.route('/pitch/new', methods = ['GET','POST'])
+@c.route("/post",methods=['GET','POST'])
 @login_required
-def new_sale():
-    sale_form = SellForm()
-    if sale_form.validate_on_submit():
-        title = sale_form.title.data
-        sale = sale_form.text.data
-        category = sale_form.category.data
-        # Updated sale instance
-        new_sale = Sell(sell_title=title,sell_content=sale,category=category, likes=0,dislikes=0)
+def post():
+    form = ArticleForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        content = form.content.data
 
-        # Save sale method
-        new_sale.save_sale()
+        new_post = Articles()
+        new_post.title = title
+        new_post.content= content
+
+        new_post.save_article()
+
+        new_article = Articles(title=title,content = content)
+    
         return redirect(url_for('main.index'))
 
-    title = 'New sale'
-    return render_template('cart/new_sell.html',title = title,sale_form=sale_form )
+    title="Post your article"
+    return render_template('cart/new_sell.html',title=title,article_form=form)
+
+
 
 
 
@@ -35,8 +39,8 @@ def new_sale():
 @c.route('/user/<uname>/items')
 def user_items(uname):
     user = User.query.filter_by(username=uname).first()
-    pitches = Sell.query.filter_by(user_id = user.id).all()
-    sales_count = Sell.count_sale(uname)
+    pitches = Articles.query.filter_by(user_id = user.id).all()
+    sales_count = Articles.count_sale(uname)
     
 
     return render_template("cart/user_items.html", user=user,pitches=pitches,sales_count= sales_count)

@@ -1,20 +1,37 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block content %}
-    <div class="container">
-        <div class="col-md-12">
-            <h3>Create a sale</h3>
-            <hr>
-            {{ wtf.quick_form(sale_form) }}
-        </div>
+{% block content%}
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      {% if title %}
+      <title> {{ title }}</title>
+      {% else %}
+      <title> </title>
+     
+      {% endif %}
+    </head>
+    <style>
+    body{
+        background-image:url('https://images.pexels.com/photos/935871/pexels-photo-935871.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000');
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    </style>
+    <body>
 
-    </div>
-  
+    </body>
+    </html>
 
+{{ wtf.quick_form(article_form) }}
 
-
-
-
-    </div>
 {% endblock %}
+
+
+
+
+
+
