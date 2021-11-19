@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{%block content%}
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Ranga" rel="stylesheet">
+   <center><h1>Fruits</h1></center>
+</div>
+<div class="container" style="font-family: 'Indie+Flower', cursive;">
+    <hr>
+    <div class="row">
+        {{macro.displayPitches(pitches)}}
+    </div>
+</div>
+<br><br><br>
+
+    {% include "footer.html" %}
+    </div>
+{%endblock%}
