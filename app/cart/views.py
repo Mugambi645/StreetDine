@@ -13,7 +13,7 @@ from app.profile.forms import UpdateProfile
 
 
 
-@c.route('/pitch/new', methods = ['GET','POST'])
+@c.route('/sales/new', methods = ['GET','POST'])
 @login_required
 def new_pitch():
     pitch_form = PitchForm()
@@ -35,7 +35,7 @@ def new_pitch():
 
 
 
-@c.route('/pitches/drinks')
+@c.route('/sales/drinks')
 def drinks_sale():
 
     pitches = Pitch.get_pitches('drinks')
@@ -43,7 +43,7 @@ def drinks_sale():
     return render_template("cart/drinks.html", pitches = pitches)
  
 
-@c.route('/pitches/fruits')
+@c.route('/sales/fruits')
 def fruits_sale():
 
     pitches = Pitch.get_pitches('fruits')
@@ -51,7 +51,7 @@ def fruits_sale():
     return render_template("cart/fruits.html", pitches = pitches)
 
 
-@c.route('/pitches/foreign')
+@c.route('/sales/foreign')
 def foreign_sale():
 
     pitches = Pitch.get_pitches('foreign')
@@ -60,7 +60,7 @@ def foreign_sale():
 
 
 
-@c.route('/pitches/traditional')
+@c.route('/sales/traditional')
 def traditional_sale():
 
     pitches = Pitch.get_pitches('traditional')
@@ -68,7 +68,7 @@ def traditional_sale():
     return render_template("cart/traditional.html", pitches = pitches)
 
 
-@c.route('/pitch/snacks')
+@c.route('/sales/snacks')
 def snacks():
 
     pitches = Pitch.get_pitches('snacks')
@@ -76,7 +76,7 @@ def snacks():
     return render_template("cart/snacks.html", pitches = pitches)
 
 
-@c.route('/pitch/<int:id>', methods = ['GET','POST'])
+@c.route('/sales/<int:id>', methods = ['GET','POST'])
 def pitch(id):
     pitch = Pitch.get_pitch(id)
     posted_date = pitch.posted.strftime('%b %d, %Y')
@@ -111,7 +111,7 @@ def pitch(id):
 
     return render_template("cart/good.html", pitch = pitch, comment_form = comment_form, comments = comments, date = posted_date)
 
-@c.route('/user/<uname>/pitches')
+@c.route('/user/<uname>/sales')
 def user_pitches(uname):
     user = User.query.filter_by(username=uname).first()
     pitches = Pitch.query.filter_by(user_id = user.id).all()
