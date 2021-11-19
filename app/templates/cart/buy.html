@@ -1,25 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-{% for article in articles  %}
-<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    <div class="panel">
-    <div class="panel-body">
-        <h2 id="articletitle">{{ article.title }}</h2>
-        <p id="content">{{ article.content }}</p>
-        
-        <blockquote >
-          <footer>Posted by:
-            <cite > {{ article.author.current_user}}</cite>
-            on
-            <cite > {{ article.date_posted.strftime('%Y-%m-%d')}}</cite>
-          </footer>
-        </blockquote>
-        <div class="text-center">
-        <a href="/review/{{article.id}}" class="btn btn-primary">Add Comment</a>
-        
+<div class="container" style= "font-family: 'Gluten', cursive;;">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Drinks</h3>
+              <p>Get yourself something to refreshen your day</p>
+              <a href="{{url_for('cart.drinks_sale')}}" class="btn btn-primary -center">View cart</a>
+          </div>
       </div>
+      <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Snacks</h3>
+              <p>Looking for fast food?You are in the right place</p>
+              <a href="{{url_for('cart.anaconda_pitches')}}" class="btn btn-primary -center">View cart</a>
+          </div>
       </div>
-    </div>
+      <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Traditional Foods</h3>
+              <p>Get to enjoy a classic blend of the best cuisines in kenya</p>
+              <a href="{{url_for('cart.alien_pitches')}}" class="btn btn-primary -center">View cart</a>
+          </div>
+      </div>
   </div>
-{% endfor %}
+</div>
+<div class="container" style= "font-family: 'Gluten', cursive;">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Foreigh Dishes</h3>
+              <p>For those wishing to explore other culinary cultures</p>
+              <a href="{{url_for('cart.birds_pitches')}}" class="btn btn-primary -center">View</a>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Fruits</h3>
+              <p>Bringing you tropical fruits right at your doorstep</p>
+              <a href="{{url_for('cart.culture_pitches')}}" class="btn btn-primary -center">View cart</a>
+          </div>
+      </div>
 {% endblock %}

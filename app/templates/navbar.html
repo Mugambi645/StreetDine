@@ -59,9 +59,20 @@
         <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{url_for('main.index')}}">Home</a></li>
-                    <li><a href="{{url_for('cart.post')}}">Sell a Product</a></li>
-                    <li><a href="{{url_for('cart.buy')}}"">Book a Trader</a></li>
+                    <li><a href="{{url_for('cart.new_pitch')}}">Sell a Product</a></li>
                 
+                    <li><div class="dropdown" style="margin-top: 1.2rem; color: #04AA6D; margin-right: 1rem;">
+                      Buys
+                      <div class="dropdown-content">
+                        <a href="{{url_for('cart.drinks_sale')}}">Drinks and Beverages</a>
+                        <a href="{{url_for('cart.fruits_sale')}}">Fruits</a>
+                        <a href="{{url_for('cart.foreign_sale')}}">Foreign Sales</a>
+                        <a href="{{url_for('cart.traditional_sale')}}">Tradtional Sales</a>
+                        <a href="{{url_for('cart.snacks')}}">Snacks</a>
+                     
+                      
+                      </div>
+
                     <li><div class="dropdown" style="margin-top: 1.2rem; color: #04AA6D;">
                         FAQs
                         <div class="dropdown-content">
@@ -76,7 +87,7 @@
                   {% if current_user.is_authenticated %}
                        
                             <li><a href="{{url_for('profile.profile', uname=current_user.username)}}">Profile</a></li>
-                            <li><a href="{{url_for('cart.user_items', uname=current_user.username)}}">My Cart</a></li>
+                            <li><a href="{{url_for('cart.user_pitches', uname=current_user.username)}}">My Cart</a></li>
                             <li role="separator" class="divider"></li>
                         <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                           

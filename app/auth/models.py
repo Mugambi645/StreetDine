@@ -16,11 +16,13 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255),unique = True,index = True)
     password_hash = db.Column(db.String(255))
     bio = db.Column(db.String(255))
-    profile_pic_path = db.Column(db.String())
+    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    profile_pic_path = db.Column(db.String())
+
     pass_secure  = db.Column(db.String(255))
     #date_joined = db.Column(db.DateTime,default=datetime.utcnow)
-
+    comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
     def __repr__(self):
         return f'User {self.username}'
     

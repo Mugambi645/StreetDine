@@ -2,24 +2,28 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content%}
-<!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="utf-8">
-      {% if title %}
-      <title> {{ title }}</title>
-      {% else %}
-      <title> </title>
-     
-      {% endif %}
-    </head>
- 
-    <body>
 
-    </body>
-    </html>
 
-{{ wtf.quick_form(article_form) }}
+    <div class="container">
+        <div class="col-md-12">
+            <h3>Create a new sale</h3>
+            <hr>
+            {{ wtf.quick_form(pitch_form) }}
+        </div>
+
+    </div>
+  
+
+
+     <!-- <div class="col-md-4">
+          <div class="well well-lg">
+              <h3>Poetry Pitches</h3>
+              <p>Welcome to the hub of amazing poetry</p>
+              <a href="{{url_for('cart.poetry_pitches')}}" class="btn btn-primary -center">View</a>
+          </div>
+      </div>-->
+  </div>
+  <br><br><br><br>
 
 {% endblock %}
 
