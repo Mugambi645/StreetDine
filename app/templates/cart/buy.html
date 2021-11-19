@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% for article in articles  %}
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="panel">
+    <div class="panel-body">
+        <h2 id="articletitle">{{ article.title }}</h2>
+        <p id="content">{{ article.content }}</p>
+        
+        <blockquote >
+          <footer>Posted by:
+            <cite > {{ article.author.current_user}}</cite>
+            on
+            <cite > {{ article.date_posted.strftime('%Y-%m-%d')}}</cite>
+          </footer>
+        </blockquote>
+        <div class="text-center">
+        <a href="/review/{{article.id}}" class="btn btn-primary">Add Comment</a>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

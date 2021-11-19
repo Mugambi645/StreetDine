@@ -26,15 +26,16 @@ def post():
 
         new_article = Articles(title=title,content = content)
     
-        return redirect(url_for('main.index'))
+        return redirect(url_for('.buy'))
 
     title="Post your article"
     return render_template('cart/new_sell.html',title=title,article_form=form)
 
 
-
-
-
+@c.route("/buy")
+@login_required
+def buy():
+    return render_template("cart/buy.html")
 
 @c.route('/user/<uname>/items')
 def user_items(uname):
