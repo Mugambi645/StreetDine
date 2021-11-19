@@ -1,5 +1,469 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
 
+.contact-section {
+	padding-bottom: 94px;
+}
 
+.contact-form input {
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	color: #838383;
+	border: 0;
+	padding-bottom: 14px;
+	border-bottom: 2px solid #E7EBED;
+	margin-bottom: 25px;
+}
+
+.contact-form textarea {
+	width: 100%;
+	border-bottom: 2px solid #E7EBED;
+	font-size: 12px;
+	font-weight: 600;
+	color: #838383;
+	border-left: 0;
+	height: 215px;
+	border-right: 0;
+	border-top: 0;
+	resize: none;
+	margin-bottom: 40px;
+}
+
+.contact-form button {
+	color: #1e1e1e;
+	background: transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 16px 50px;
+	border: 2px solid #1e1e1e;
+	border-radius: 50px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.contact-widget .cw-item {
+	margin-bottom: 50px;
+}
+
+.contact-widget .cw-item h5 {
+	color: #1e1e1e;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+.contact-widget .cw-item ul li {
+	color: #838383;
+	font-size: 14px;
+	font-weight: 500;
+	list-style: none;
+	line-height: 28px;
+}
+
+.map {
+	padding-top: 100px;
+}
+
+.map iframe {
+	width: 100%;
+}
+
+/* ---------------------------------- Responsive Media Styles ---------------------------------*/
+
+@media only screen and (min-width: 1500px) and (max-width: 1920px) {
+	.inner-header .user-access {
+		float: right;
+		margin-right: 200px;
+	}
+	.inner-header .main-menu {
+		float: right;
+		margin-right: 238px;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1340px) {
+	.inner-header .user-access {
+		margin-right: 60px;
+	}
+	.inner-header .main-menu {
+		margin-right: 55px;
+	}
+}
+
+/* Medium Device : 1280px */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.inner-header .main-menu {
+		margin-right: 70px;
+	}
+	.inner-header .main-menu ul li {
+		margin-left: 45px;
+	}
+	.inner-header .user-access {
+		display: none;
+	}
+	.header-info .shipping-chrg {
+		margin-right: 10px;
+	}
+	.lookbok-left {
+		padding-top: 0px;
+	}
+	.lookbok-pic .pic-text {
+		font-size: 95px;
+		line-height: 68px;
+	}
+	.social-links a {
+		margin-right: 50px;
+	}
+	.product-content {
+		padding-top: 20px;
+	}
+	.product-content .p-info {
+		margin-top: 35px;
+	}
+	.cart-btn .site-btn.update-btn {
+		margin-right: 0;
+		padding: 16px 35px;
+	}
+	.header-info .shipping-chrg p {
+		font-size: 13px;
+	}
+	.logo-section {
+		padding: 70px 0;
+	}
+	.order-table .cart-item p.product-name {
+		font-size: 12px;
+		font-weight: 600;
+		padding-top: 3px;
+	}
+}
+
+/* Tablet Device : 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.header-section {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.inner-header .main-menu {
+		margin-right: 50px;
+	}
+	.inner-header .main-menu ul li {
+		margin-left: 30px;
+	}
+	.header-info .shipping-chrg {
+		float: none;
+		margin-right: 0;
+	}
+	.header-info .student-disc {
+		float: none;
+	}
+	.header-info .coupon-code {
+		float: none;
+	}
+	.inner-header .user-access {
+		display: none;
+	}
+	.page-add .page-breadcrumb {
+		margin-bottom: 20px;
+	}
+	.lookbok-left {
+		margin-bottom: 30px;
+	}
+	.checkout-form .in-name {
+		text-align: left;
+	}
+	.social-links a {
+		margin-right: 15px;
+	}
+	.social-links a i {
+		margin-right: 10px;
+	}
+	.cart-btn {
+		padding: 50px 30px;
+	}
+	.cart-btn .coupon-input {
+		padding-left: 0;
+		margin-bottom: 30px;
+	}
+	.cart-btn .coupon-input input {
+		width: 100%;
+	}
+	.shipping-info .cs-item {
+		margin-right: 15px;
+	}
+	.contact-form {
+		margin-bottom: 40px;
+	}
+	.logo-section {
+		padding: 70px 0;
+	}
+	.lookbok-left {
+		padding-top: 0;
+	}
+}
+
+/* Large Mobile : 480px */
+
+@media only screen and (max-width: 767px) {
+	.header-section {
+		height: auto;
+		padding-bottom: 0;
+	}
+	.inner-header {
+		overflow: hidden;
+	}
+	.inner-header .user-access {
+		margin-right: 10px;
+	}
+	.slicknav_menu {
+		display: block;
+		margin-top: 10px;
+	}
+	.inner-header .header-right {
+		margin-right: 20px;
+		margin-top: 4px;
+	}
+	.slicknav_nav ul {
+		margin: 0 0 0 0;
+	}
+	.main-menu {
+		display: none;
+	}
+	.header-section {
+		overflow: hidden;
+	}
+	.single-slider-item h1 {
+		font-size: 72px;
+	}
+	.single-slider-item h2 {
+		font-size: 42px;
+	}
+	.lookbok-left {
+		margin-bottom: 30px;
+	}
+	.contact-form {
+		margin-bottom: 40px;
+	}
+	.newslatter-form form button {
+		position: relative;
+		margin-top: 15px;
+		width: 100%;
+	}
+	.header-info .shipping-chrg {
+		float: none;
+		margin-right: 0;
+	}
+	.header-info .student-disc {
+		float: none;
+	}
+	.header-info .coupon-code {
+		float: none;
+	}
+	.hero-items .owl-nav button[type=button] {
+		left: 5px;
+	}
+	.social-links {
+		text-align: center;
+	}
+	.social-links a {
+		margin-right: 20px;
+	}
+	.social-links a i {
+		margin-right: 0;
+	}
+	.social-links a span {
+		display: none;
+	}
+	.lookbok-pic .pic-text {
+		font-size: 115px;
+		line-height: 82px;
+	}
+	.page-add .page-breadcrumb {
+		margin-bottom: 20px;
+	}
+	.cart-table {
+		overflow-y: auto;
+	}
+	.cart-btn {
+		padding: 50px 30px;
+	}
+	.cart-btn .coupon-input {
+		padding-left: 0;
+		margin-bottom: 30px;
+	}
+	.cart-btn .coupon-input input {
+		width: 100%;
+	}
+	.shipping-info .cs-item {
+		margin-bottom: 15px;
+	}
+	.total-info .total-table {
+		overflow-y: auto;
+	}
+	.checkout-form .in-name {
+		text-align: left;
+	}
+	.logo-section {
+		padding: 70px 0;
+	}
+	.lookbok-left {
+		padding-top: 0;
+	}
+	.header-info .header-item {
+		margin-bottom: 7px;
+	}
+	.search-model-form input {
+		width: 100%;
+	}
+}
+
+/* Small : 320px */
+
+@media only screen and (max-width: 479px) {
+	.header-section {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.inner-header .header-right {
+		margin-right: 0;
+	}
+	.features-box .single-box-item.first-box .box-text {
+		right: 9px;
+		top: 7px;
+	}
+	.features-box .single-box-item .box-text h2 {
+		font-size: 40px;
+	}
+	.features-box .single-box-item.first-box .box-text .trend-alert {
+		margin-bottom: 7px;
+	}
+	.features-box .single-box-item.second-box .box-text {
+		left: 20px;
+		top: 56px;
+	}
+	.features-box .single-box-item.large-box .box-text {
+		left: 20px;
+		top: 28px;
+	}
+	.features-box .single-box-item.large-box .box-text h2 {
+		font-size: 40px;
+	}
+	.product-filter .product-controls li {
+		margin-bottom: 10px;
+	}
+	.section-title h2 {
+		font-size: 36px;
+	}
+	.lookbok-pic img {
+		height: auto;
+	}
+	.lookbok-pic .pic-text {
+		font-size: 65px;
+		line-height: 47px;
+	}
+	.social-links a {
+		margin-right: 10px;
+	}
+	.product-content .product-quantity {
+		margin-bottom: 15px;
+	}
+	.cart-btn .coupon-input input {
+		width: 100%;
+	}
+	.cart-btn .site-btn.update-btn {
+		margin-right: 0;
+	}
+	.cart-btn .site-btn.clear-btn {
+		margin-bottom: 15px;
+	}
+	.header-info .header-item img {
+		display: block;
+	}
+	.header-info {
+		padding: 10px 0;
+	}
+}
+/* add + remove button */
+
+  
+</style>
+<!-- Page Add Section Begin -->
+<section class="page-add">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="page-breadcrumb">
+                    <h2>Contact us<span>.</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Add Section End -->
+
+<!-- Contact Section Begin -->
+<div class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <form action="{{ url_for('faqs.contact') }}" class="contact-form" method = "POST">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="First Name" name="firstname">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" placeholder="Last Name" name="lastname">
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="email" placeholder="E-mail" name="email">
+                            <input type="text" placeholder="Subject" name="subject">
+                            <textarea placeholder="Message" name="message"></textarea>
+                        </div>
+                        <div class="col-lg-12 text-right">
+                            <button type="submit">Send message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="contact-widget">
+                    <div class="cw-item">
+                        <h5>Location</h5>
+                        <ul>
+                            <li>Kenya, </li>
+                            <li>Nairobi,Prestige</li>
+                        </ul>
+                    </div>
+                    <div class="cw-item">
+                        <h5>Phone</h5>
+                        <ul>
+                            <li>0746262828</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="cw-item">
+                        <h5>E-mail</h5>
+                        <ul>
+                            <li>StreetDine@gmail.com</li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <iframe
+                        src="https://www.google.com/maps/place/Th%E1%BA%A3o+%C4%90i%E1%BB%81n,+Qu%E1%BA%ADn+2,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.809279,106.7266634,15z/data=!3m1!4b1!4m5!3m4!1s0x3175263d580e4583:0x6d25e042c3aed063!8m2!3d10.8064331!4d106.7323097?hl=vi-VN"
+                        height="560" style="border:0;" allowfullscreen=""></iframe> -->
+                        <iframe src="https://www.google.com/maps/embed?pb=-1.185241,36.885009" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
