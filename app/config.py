@@ -1,15 +1,14 @@
 import os
-
-
 import re
-
 class Config:
-    '''General configuration class'''
+    '''
+    general configuration parent class
+    '''
+    SECRET_KEY=os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS=False
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    UPLOADED_PHOTOS_DEST = 'app/static/photos' #we will store our photos in the static file since it is not advisable to that in the db
-
-    # email configurations
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    SESSION_COOKIE_SECURE = False
+     # email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 465
     MAIL_USE_TLS = False
@@ -20,42 +19,31 @@ class Config:
     #simple mde configurations
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
-
     @staticmethod
     def init_app(app):
         pass
-
 class ProdConfig(Config):
-    '''
-    Production  configuration child class
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    SQLALCHEMY_DATABASE_URI= os.environ.get("DATABASE_URL")
-    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
-   
-
+    """
+    Production configuration class
+    """
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",1)
 class TestConfig(Config):
-    '''
-    Testing configuration child class
-    Args:
-        Config: The parent configuration class with General configuration settings 
-    '''
+    """
+    Testing configuration class
+    """
     pass
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pato:flower2@localhost/streetdine'
+    """
+    Development configuration class
+    """
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pato:flower2@localhost/blogs'
     DEBUG = True
 
 config_options = {
     'development':DevConfig,
     'production':ProdConfig,
-    'test':TestConfig
-
+    'test': TestConfig
 }
