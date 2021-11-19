@@ -39,7 +39,7 @@ class DevConfig(Config):
     """
     Development configuration class
     """
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pato:flower2@localhost/blogs'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pato:flower2@localhost/streetdine'
     DEBUG = True
 
 config_options = {
