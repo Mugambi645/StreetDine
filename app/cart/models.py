@@ -14,8 +14,7 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
-    phone_num = db.Column(db.Integer)
-    whats_num = db.Column(db.Integer)
+    
     comments = db.relationship('Comment',backref =  'pitch_id',lazy = "dynamic")
 
     def __repr__(self):
